@@ -1,0 +1,52 @@
+# @package _global_
+
+# to execute this experiment run:
+# python main.py experiment=mimoawgn
+
+defaults:
+  - /distribution: mimoawgn
+  - /algorithm: cc_wgf
+  - override /hydra/launcher: joblib
+
+task_name: "mimoawgn"
+
+dim_x: 2
+dim_y: ${dim_x}
+
+num_samples_x: 64
+snr: 10.0
+device: "cpu"
+
+algorithm:
+  verbose: 100
+  lr_lam: 4e-4
+  max_iter: 8000
+  optimizer_callable:
+    _target_: torch.optim.Adam
+    lr: 1e-2
+  # scheduler_callable:
+  #   _partial_: true
+  #   _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  #   mode: "max"
+  #   patience: 200
+  #   factor: 0.8
+  #   threshold: 1e-2
+  #   min_lr: 1e-4
+
+tags: ["mimoawgn"]
+
+seed: 10
+
+hydra:
+  mode: "MULTIRUN"
+  launcher:
+    n_jobs: 64
+  sweep:
+    dir: ${paths.log_dir}${task_name}/multiruns/
+    subdir: ${dim_x}_${dim_y}/${snr}_${num_samples_x}
+  sweeper:
+    params:
+      dim_x: 1, 2
+      # dim_y: 1, 2
+      snr: range(-10, 21, 1)
+      num_samples_x: 64, 128, 256

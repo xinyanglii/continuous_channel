@@ -1,0 +1,16 @@
+pre-commit
+autoroot
+autorootcwd
+hydra-core
+pytest
+numpy
+scipy
+hydra-colorlog
+rootutils
+notebook
+matplotlib
+einops
+torch -i https://download.pytorch.org/whl/cu121
+cvxpy
+hydra-joblib-launcher
+SciencePlots

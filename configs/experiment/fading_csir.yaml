@@ -1,0 +1,46 @@
+# @package _global_
+
+# to execute this experiment run:
+# python main.py experiment=mimoawgn
+
+defaults:
+  - /distribution: fading
+  - /algorithm: cc_wgf
+  - override /hydra/launcher: joblib
+
+task_name: "fading_csir"
+
+dim_x: 1
+dim_y: ${dim_x}
+device: "cuda"
+
+num_samples_x: 128
+snr: 10.0
+
+distribution:
+  num_samples_H: 512
+  csi_rx: True
+
+algorithm:
+  num_samples_y: 8
+  num_samples_y_eval: 16
+  verbose: 100
+  lr_lam: 5e-4
+  max_iter: 8000
+  eps: 1e-5
+  optimizer_callable:
+    _target_: torch.optim.Adam
+    lr: 1e-2
+
+seed: 10
+
+hydra:
+  mode: "MULTIRUN"
+  launcher:
+    n_jobs: 8
+  sweep:
+    dir: ${paths.log_dir}${task_name}/multiruns/
+    subdir: ${dim_x}_${dim_y}/${snr}_${num_samples_x}
+  sweeper:
+    params:
+      snr: range(-10, 21, 1)

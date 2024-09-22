@@ -1,0 +1,4 @@
+_target_: src.distributions.MIMOFadingAWGNDistribution
+
+sigma_H: 0.0
+sigma_noise: 1.0

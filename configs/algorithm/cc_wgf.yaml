@@ -1,0 +1,18 @@
+_target_: src.capacity_cost.continuous.WassersteinGradientFlowContinuousOutput
+
+num_samples_y: 64
+num_samples_y_eval: 1024
+cost_ub: 1.0
+
+optimizer_callable:
+  _partial_: true
+  _target_: torch.optim.Adam
+  lr: 1e-2
+
+scheduler_callable: null
+
+lam: 0.0
+lr_lam: 0.001
+eps: 1e-4
+max_iter: 1000
+verbose: True
