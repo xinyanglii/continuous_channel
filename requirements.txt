@@ -10,7 +10,7 @@ rootutils
 notebook
 matplotlib
 einops
-torch -i https://download.pytorch.org/whl/cu121
+torch
 cvxpy
 hydra-joblib-launcher
 SciencePlots

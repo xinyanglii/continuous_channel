@@ -6,9 +6,8 @@ This repo implements algorithms to computing the capacity-cost function of discr
 
 See the paper Computing Capacity-Cost Function for Continuous Channels in Wasserstein Space for more details.
 
-<img src="figures/sisoawgn_particles.gif" width="400" height="300"/>
-<img src="figures/mimoawgn_particles.gif" width="400" height="300"/>
-
+<img src="figures/sisoawgn_particles.gif" width="300" height="250"/>
+<img src="figures/mimoawgn_particles.gif" width="300" height="250"/>
 
 ## Getting Started
 
