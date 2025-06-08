@@ -4,7 +4,7 @@
 
 This repo implements algorithms to computing the capacity-cost function of discrete and continuous memoryless channel.
 
-See the paper Computing Capacity-Cost Function for Continuous Channels in Wasserstein Space for more details.
+See the paper [Computing Capacity-Cost Function for Continuous Channels in Wasserstein Space](https://arxiv.org/abs/2501.10670) for more details.
 
 <img src="figures/sisoawgn_particles.gif" width="300" height="250"/>
 <img src="figures/mimoawgn_particles.gif" width="300" height="250"/>
@@ -42,6 +42,35 @@ For more details about the simulation configurations, please refer to the `confi
 ## Examples
 
 You can find examples in the folder `notebook`.
+
+## Citation
+
+```bibtex
+@INPROCEEDINGS{Li2506:Computing,
+AUTHOR={Xinyang Li and Vlad Costin Andrei and Ullrich {M{\"o}nich} and Fan Liu and
+Holger Boche},
+TITLE="Computing Capacity-Cost Functions for Continuous Channels in Wasserstein
+Space",
+BOOKTITLE="2025 IEEE International Conference on Communications (ICC): Communication
+Theory Symposium (IEEE ICC'25 - CT Symposium)",
+ADDRESS="Montreal, Canada",
+PAGES="5.95",
+DAYS=8,
+MONTH=jun,
+YEAR=2025,
+ABSTRACT="This paper investigates the problem of computing capacity-cost (C-C)
+functions for continuous channels. Motivated by the Kullback-Leibler
+divergence (KLD) proximal reformulation of the classical Blahut-Arimoto
+(BA) algorithm, the Wasserstein distance is introduced to the proximal term
+for the continuous case, resulting in an iterative algorithm related to the
+Wasserstein gradient descent. Practical implementation involves moving
+particles along the negative gradient direction of the objective function's
+first variation in the Wasserstein space and approximating integrals by the
+importance sampling (IS) technique. Such formulation is also applied to the
+rate-distortion (R-D) function for continuous source spaces and thus
+provides a unified computation framework for both problems."
+}
+```
 
 ## Acknowledgement
 
